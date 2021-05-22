@@ -1,0 +1,77 @@
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid blue;
+  padding: 30px;
+  border-radius: 5px;
+
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+// HEADER
+
+.header {
+  display: flex;
+}
+
+.button {
+  flex: 1;
+}
+.title {
+  flex: 2;
+}
+
+// VIEW
+.joke {
+  padding: 10px;
+  margin: 20px;
+  text-indent: 50px;
+}
+
+// ADD
+.formAdd{
+  margin: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.shipping-card {
+  min-width: 120px;
+  margin: 20px auto;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+.example-header-image {
+  background-image: url('https://placekitten.com/g/200/301');
+  background-size: cover;
+}
+.like{
+  color: #9575CD;
+}
+.not-like{
+  color: #808080FF;
+}
