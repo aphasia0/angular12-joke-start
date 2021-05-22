@@ -18,16 +18,21 @@ export class JokeComponent implements OnInit {
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   onSubmit(): void {
-    alert('Thanks!');
+    this.http
+      .post('http://localhost:3004/barzellete', {
+        title: this.jokeForm.value,
+      })
+      .subscribe(console.log);
   }
-  $joke: Observable<Joke> = new Observable();
+  $jokes: Observable<Joke> = new Observable();
 
   ngOnInit(): void {
-    this.onClick();
+    this.$jokes = this.http.get<Joke>('http://localhost:3004/barzellete');
   }
 
   onClick(): void {
-    let id = Math.floor(Math.random() * 10);
-    this.$joke = this.http.get<Joke>('http://localhost:3004/barzellete/' + id);
+    this.$jokes.pipe();
+    8;
+    999999;
   }
 }
