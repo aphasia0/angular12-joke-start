@@ -10,11 +10,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AddJokeComponent } from './add-joke/add-joke.component';
-import { JokeComponent } from './joke/joke.component';
+import { MatIconModule } from '@angular/material/icon';
+import { JokeComponent } from './component/joke/joke.component';
+import { AddJokeComponent } from './component/joke/add-joke/add-joke.component';
+import { ViewJokeComponent } from './component/joke/view-joke/view-joke.component';
+import { HeaderJokeComponent } from './component/joke/header-joke/header-joke.component';
 
 @NgModule({
-  declarations: [AppComponent, AddJokeComponent, JokeComponent],
+  declarations: [AppComponent, JokeComponent, AddJokeComponent, ViewJokeComponent, HeaderJokeComponent],
   imports: [
     BrowserModule,
     MatButtonModule,
@@ -26,6 +29,7 @@ import { JokeComponent } from './joke/joke.component';
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
