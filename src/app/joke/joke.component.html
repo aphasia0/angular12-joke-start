@@ -7,20 +7,32 @@
           Fammi Ridere
         </button>
       </div>
+      <div class="button">
+        <button mat-raised-button color="primary" (click)="showForm()">
+          +
+        </button>
+      </div>
     </div>
 
     <div class="joke" *ngIf="$joke | async as joke">
       <h3>{{ joke.title }}</h3>
       <p>{{ joke.content }}</p>
     </div>
-    <form [formGroup]="jokeForm" novalidate (ngSubmit)="onSubmit()">
+    <form
+      *ngIf="formVisible"
+      [formGroup]="jokeForm"
+      novalidate
+      (ngSubmit)="onSubmit()"
+    >
       <mat-card class="shipping-card">
         <mat-card-content>
           <div class="row">
             <div class="col">
               <mat-form-field class="full-width">
-                <input matInput placeholder="Title" formControlName="title"/>
-                <mat-error *ngIf="jokeForm.controls['title'].hasError('required')">
+                <input matInput placeholder="Title" formControlName="title" />
+                <mat-error
+                  *ngIf="jokeForm.controls['title'].hasError('required')"
+                >
                   Title is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
@@ -30,13 +42,14 @@
           <div class="row">
             <div class="col">
               <mat-form-field class="full-width">
-            <textarea
-              matInput
-              placeholder="Joke"
-              formControlName="content"
-            ></textarea>
+                <textarea
+                  matInput
+                  placeholder="Joke"
+                  formControlName="content"
+                ></textarea>
                 <mat-error
-                  *ngIf="jokeForm.controls['content'].hasError('required')">
+                  *ngIf="jokeForm.controls['content'].hasError('required')"
+                >
                   Address is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
@@ -55,6 +68,5 @@
         </mat-card-actions>
       </mat-card>
     </form>
-
   </div>
 </div>

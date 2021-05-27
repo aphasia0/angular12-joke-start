@@ -18,6 +18,8 @@ export class JokeComponent implements OnInit {
   $jokes: Observable<Joke[]> = new Observable();
   $joke: Observable<Joke> = new Observable();
 
+  formVisible: boolean = false;
+
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class JokeComponent implements OnInit {
         ...this.jokeForm.value,
       })
       .subscribe(console.log);
+    this.formVisible = false;
   }
 
   onClick(): void {
@@ -46,5 +49,9 @@ export class JokeComponent implements OnInit {
     //     .get<Joke>('http://localhost:3004/barzellete/' + id)
     //     .subscribe((value1) => (this.$joke = of(value1)));
     // });
+  }
+
+  showForm() {
+    this.formVisible = !this.formVisible;
   }
 }
