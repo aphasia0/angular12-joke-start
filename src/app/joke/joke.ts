@@ -1,5 +1,6 @@
 export interface Joke {
-  id: string;
+  id: number;
+  like: boolean;
   title: string;
   content: string;
 }

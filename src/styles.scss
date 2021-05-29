@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+@use "sass:map";
+$my-palette: mat.$deep-purple-palette;
+
+$like-color:map.get($my-palette,300);
+$not-like-color: gray;
 
 html,
 body {
@@ -6,3 +12,4 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   padding:0;
 }
+

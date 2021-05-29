@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Joke } from './joke';
 import { FormBuilder, Validators } from '@angular/forms';
 import { switchMap } from 'rxjs/operators';
@@ -15,34 +14,37 @@ export class JokeComponent implements OnInit {
     title: [null, Validators.required],
     content: [null, Validators.required],
   });
-  $jokes: Observable<Joke[]> = new Observable();
-  $joke: Observable<Joke> = new Observable();
+
+  joke: Joke | undefined;
 
   formVisible: boolean = false;
+  catUrl: string = "url('https://placekitten.com/g/200/3";
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.onClick();
+    this.getData();
   }
 
   onSubmit(): void {
     this.http
-      .post('http://localhost:3004/barzellete', {
+      .post<Joke>('http://localhost:3004/barzellete', {
         ...this.jokeForm.value,
       })
-      .subscribe(console.log);
+      .subscribe((value) => (this.joke = value));
     this.formVisible = false;
   }
 
-  onClick(): void {
-    this.$jokes = this.http.get<Joke[]>('http://localhost:3004/barzellete');
-    this.$joke = this.$jokes.pipe(
-      switchMap((value) => {
-        let id = Math.round(Math.random() * (value.length - 1));
-        return this.http.get<Joke>('http://localhost:3004/barzellete/' + id);
-      })
-    );
+  getData(): void {
+    const $jokes = this.http.get<Joke[]>('http://localhost:3004/barzellete');
+    $jokes
+      .pipe(
+        switchMap((value) => {
+          let id = Math.round(Math.random() * (value.length - 1));
+          return this.http.get<Joke>('http://localhost:3004/barzellete/' + id);
+        })
+      )
+      .subscribe((value) => (this.joke = value));
     // this.$jokes.subscribe((value) => {
     //   let id = Math.round(Math.random() * value.length - 1);
     //   this.http
@@ -53,5 +55,20 @@ export class JokeComponent implements OnInit {
 
   showForm() {
     this.formVisible = !this.formVisible;
+  }
+
+  delete() {
+    this.http
+      .delete<Joke>('http://localhost:3004/barzellete/' + this.joke?.id)
+      .subscribe(() => (this.joke = undefined));
+  }
+
+  like() {
+    this.http
+      .put<Joke>('http://localhost:3004/barzellete/' + this.joke?.id, {
+        ...this.joke,
+        like: !this.joke?.like,
+      })
+      .subscribe((value) => (this.joke = value));
   }
 }

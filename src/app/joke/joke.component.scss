@@ -1,6 +1,14 @@
+@import "~src/styles.scss";
+
 .joke {
   padding: 10px;
+  margin: 20px;
   text-indent: 50px;
+}
+
+.formAdd{
+
+  margin: 20px;
 }
 
 .container {
@@ -26,7 +34,7 @@ body {
   flex: 1;
 }
 .title {
-  flex: 3;
+  flex: 2;
 }
 
 
@@ -56,4 +64,14 @@ body {
 
 .col:last-child {
   margin-right: 0;
+}
+.example-header-image {
+  background-image: url('https://placekitten.com/g/200/301');
+  background-size: cover;
+}
+.like{
+  color: $like-color;
+}
+.not-like{
+  color: $not-like-color;
 }

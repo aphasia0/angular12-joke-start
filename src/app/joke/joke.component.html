@@ -3,7 +3,7 @@
     <div class="header">
       <h1 class="title">Get a Joke</h1>
       <div class="button">
-        <button mat-raised-button color="primary" (click)="onClick()">
+        <button mat-raised-button color="primary" (click)="getData()">
           Fammi Ridere
         </button>
       </div>
@@ -14,12 +14,36 @@
       </div>
     </div>
 
-    <div class="joke" *ngIf="$joke | async as joke">
-      <h3>{{ joke.title }}</h3>
-      <p>{{ joke.content }}</p>
-    </div>
+    <mat-card class="joke" *ngIf="joke">
+      <mat-card-header>
+        <div
+          [style.background-Image]="
+            catUrl.concat(joke.id.toString().padStart(2, '0')).concat('\')')
+          "
+          mat-card-avatar
+          class="example-header-image"
+        ></div>
+        <mat-card-title>{{ joke.title }}</mat-card-title>
+
+        <mat-card-subtitle>Mister Cat</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>{{ joke.content }}</mat-card-content>
+
+      <mat-card-actions>
+        <button (click)="delete()" mat-button>CANCELLA</button>
+        <button (click)="like()" mat-button><mat-icon
+          [ngClass]="joke.like ? 'like' : 'not-like'"
+          aria-hidden="false"
+          aria-label="Example home icon"
+        >thumb_up</mat-icon
+        ></button>
+      </mat-card-actions>
+    </mat-card>
+
     <form
       *ngIf="formVisible"
+      class="formAdd"
       [formGroup]="jokeForm"
       novalidate
       (ngSubmit)="onSubmit()"
