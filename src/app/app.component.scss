@@ -26,6 +26,9 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+//HEADER
+
+
 .header {
   display: flex;
 }
@@ -70,8 +73,8 @@ body {
   background-size: cover;
 }
 .like{
-  color: $like-color;
+  color: #9575CD;
 }
 .not-like{
-  color: $not-like-color;
+  color: #808080FF;
 }
