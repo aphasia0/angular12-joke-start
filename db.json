@@ -56,7 +56,7 @@
     },
     {
       "id": 9,
-      "like": true,
+      "like": false,
       "title": "Title 9",
       "content": "Pierino e il papà sono nell’atrio di un hotel mentre una signora brutta sale sull’ascensore. Pochi istanti dopo le porte dell’ascensore si riaprono e scende una donna bellissima. Allora il papà dice a Pierino: «Forza figliolo, corri dalla mamma e dille di prendere l’ascensore!»."
     },
@@ -77,18 +77,6 @@
       "like": true,
       "title": "Title 12",
       "content": "La maestra, in classe, spiega ai bambini il concetto degli insiemi: «Se prendiamo una zucchina, quattro carote, tre patate, un gambo di sedano e venti piselli che cosa abbiamo fatto?» Pierino alza subito la mano: «Un bel minestrone signora maestra!»."
-    },
-    {
-      "id": 13,
-      "like": true,
-      "title": "Title 13",
-      "content": "Un’oca incontra un cane al parco: «Oggi fa davvero un freddo cane» gli dice. «Non dirmelo», le risponde, «Io ho la pelle d’oca!»."
-    },
-    {
-      "title": "ohkjn ",
-      "like": true,
-      "content": "lmnkn",
-      "id": 14
     },
     {
       "title": "qws",
