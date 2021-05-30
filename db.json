@@ -8,7 +8,7 @@
     },
     {
       "id": 1,
-      "like": false,
+      "like": true,
       "title": "Title 1",
       "content": "Un cane dalmata incontra al parco, nel prato, una coccinella. «Ehi amica! Tu ed io abbiamo molti... punti in comune»."
     },
@@ -88,6 +88,16 @@
       "content": "jbiubj",
       "id": 17,
       "like": true
+    },
+    {
+      "title": "ss",
+      "content": "sss",
+      "id": 18
+    },
+    {
+      "title": "sad",
+      "content": "asdasd",
+      "id": 19
     }
   ]
 }
