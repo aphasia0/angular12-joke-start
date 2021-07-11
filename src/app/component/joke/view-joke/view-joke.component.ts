@@ -6,7 +6,7 @@ import { Joke } from '../../../joke';
   templateUrl: './view-joke.component.html',
   styleUrls: ['./view-joke.component.scss'],
 })
-export class ViewJokeComponent implements OnInit {
+export class ViewJokeComponent {
   @Input()
   joke: Joke | undefined;
 
@@ -18,8 +18,6 @@ export class ViewJokeComponent implements OnInit {
 
   catUrl: string = "url('https://placekitten.com/g/200/3";
   constructor() {}
-
-  ngOnInit(): void {}
 
   delete() {
     this.deleteClick.emit();

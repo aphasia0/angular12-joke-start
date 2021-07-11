@@ -2,8 +2,8 @@
   <mat-card-header>
     <div
       [style.background-Image]="
-            catUrl.concat(joke.id.toString().padStart(2, '0')).concat('\')')
-          "
+        catUrl.concat(joke.id.toString().padStart(2, '0')).concat('\')')
+      "
       mat-card-avatar
       class="example-header-image"
     ></div>
@@ -16,11 +16,13 @@
 
   <mat-card-actions>
     <button (click)="delete()" mat-button>CANCELLA</button>
-    <button (click)="like()" mat-button><mat-icon
-      [ngClass]="joke.like ? 'like' : 'not-like'"
-      aria-hidden="false"
-      aria-label="Example home icon"
-    >thumb_up</mat-icon
-    ></button>
+    <button (click)="like()" mat-button>
+      <mat-icon
+        [ngClass]="joke.like ? 'like' : 'not-like'"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >thumb_up</mat-icon
+      >
+    </button>
   </mat-card-actions>
 </mat-card>

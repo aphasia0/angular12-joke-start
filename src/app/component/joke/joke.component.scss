@@ -1,8 +1,4 @@
-@import "~src/styles.scss";
-
-
-
-
+@import '~src/styles.scss';
 
 .container {
   max-width: 500px;
@@ -12,9 +8,8 @@
   border: 1px solid blue;
   padding: 30px;
   border-radius: 5px;
-
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }

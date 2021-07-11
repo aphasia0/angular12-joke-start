@@ -1,7 +1,7 @@
 <div>
   <div class="container">
     <app-header-joke (addClick)="showForm()" (getClick)="getData()"></app-header-joke>
-    <app-view-joke [joke]="joke" (deleteClick)="delete()" (likeClick)="like()"></app-view-joke>
-    <app-add-joke *ngIf="formVisible" (submitClick)="onSubmit($event)"></app-add-joke>
+    <app-view-joke [joke]="joke" (deleteClick)="delete()" (likeClick)="like()"></app-view-joke
+    ><app-add-joke *ngIf="formVisible" (submitClick)="onSubmit($event)"></app-add-joke>
   </div>
 </div>

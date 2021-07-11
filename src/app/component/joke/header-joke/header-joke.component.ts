@@ -5,15 +5,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   templateUrl: './header-joke.component.html',
   styleUrls: ['./header-joke.component.scss'],
 })
-export class HeaderJokeComponent implements OnInit {
+export class HeaderJokeComponent {
   @Output()
   getClick: EventEmitter<void> = new EventEmitter<void>();
   @Output()
   addClick: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   getData() {
     this.getClick.next();

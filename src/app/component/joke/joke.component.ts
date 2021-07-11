@@ -25,7 +25,7 @@ export class JokeComponent implements OnInit {
       .post<Joke>('http://localhost:3004/barzellete', {
         ...joke,
       })
-      .subscribe((value) => (this.joke = value));
+      .subscribe(value => (this.joke = value));
     this.formVisible = false;
   }
 
@@ -33,15 +33,12 @@ export class JokeComponent implements OnInit {
     const $jokes = this.http.get<Joke[]>('http://localhost:3004/barzellete');
     $jokes
       .pipe(
-        switchMap((value) => {
+        switchMap(value => {
           let arrayIndex = Math.round(Math.random() * (value.length - 1));
-
-          return this.http.get<Joke>(
-            'http://localhost:3004/barzellete/' + value[arrayIndex].id
-          );
-        })
+          return this.http.get<Joke>('http://localhost:3004/barzellete/' + value[arrayIndex].id);
+        }),
       )
-      .subscribe((value) => (this.joke = value));
+      .subscribe(value => (this.joke = value));
     //
     // the code above can be done with the following code too, but prefer switchMap in pipe instead of two subscribe
     // $jokes.subscribe((value) => {
@@ -55,7 +52,6 @@ export class JokeComponent implements OnInit {
   showForm() {
     this.formVisible = !this.formVisible;
   }
-
   delete() {
     this.http
       .delete<Joke>('http://localhost:3004/barzellete/' + this.joke?.id)
@@ -68,6 +64,6 @@ export class JokeComponent implements OnInit {
         ...this.joke,
         like: !this.joke?.like,
       })
-      .subscribe((value) => (this.joke = value));
+      .subscribe(value => (this.joke = value));
   }
 }

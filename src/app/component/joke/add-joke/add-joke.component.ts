@@ -7,7 +7,7 @@ import { Joke } from '../../../joke';
   templateUrl: './add-joke.component.html',
   styleUrls: ['./add-joke.component.scss'],
 })
-export class AddJokeComponent implements OnInit {
+export class AddJokeComponent {
   @Output()
   submitClick: EventEmitter<Joke> = new EventEmitter();
 
@@ -17,8 +17,6 @@ export class AddJokeComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     this.submitClick.emit(this.jokeForm.value);
