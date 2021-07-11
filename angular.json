@@ -121,5 +121,6 @@
   "defaultProject": "ang12",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
-  }
+  },
+
 }
