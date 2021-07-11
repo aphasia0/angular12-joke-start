@@ -10,12 +10,10 @@ import { Joke } from '../../../joke';
 export class AddJokeComponent {
   @Output()
   submitClick: EventEmitter<Joke> = new EventEmitter();
-
   jokeForm = this.fb.group({
     title: [null, Validators.required],
     content: [null, Validators.required],
   });
-
   constructor(private fb: FormBuilder) {}
 
   onSubmit() {
