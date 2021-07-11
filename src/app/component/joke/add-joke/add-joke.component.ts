@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Joke } from '../../../joke';
-
+///pipo
 @Component({
   selector: 'app-add-joke',
   templateUrl: './add-joke.component.html',
